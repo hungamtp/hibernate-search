@@ -21,7 +21,7 @@ public class ProductRepositoryCustomImpl implements ProductRepositoryCustom {
     private EntityManager entityManager;
 
     @Override
-    public List<Product> search(String search) throws InterruptedException {
+    public List<Product> searchByKeyWord(String search) throws InterruptedException {
         FullTextEntityManager fullTextEntityManager
             = Search.getFullTextEntityManager(entityManager);
         fullTextEntityManager.createIndexer()

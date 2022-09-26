@@ -16,7 +16,7 @@ public class ProductController {
 
     @GetMapping
     public ResponseEntity get(@RequestBody String search) throws InterruptedException {
-        var result = productRepository.search(search);
+        var result = productRepository.searchByKeyWord(search);
         return ResponseEntity.ok().body(new PageDTO(result.size(), result));
     }
 
