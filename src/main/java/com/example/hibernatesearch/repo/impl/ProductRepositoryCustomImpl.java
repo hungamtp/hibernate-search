@@ -26,10 +26,10 @@ public class ProductRepositoryCustomImpl implements ProductRepositoryCustom {
             = Search.getFullTextEntityManager(entityManager);
         fullTextEntityManager.createIndexer()
             .startAndWait();
-//        int indexSize = fullTextEntityManager.getSearchFactory()
-//            .getStatistics()
-//            .getNumberOfIndexedEntities(Product.class.getName());
-//        System.out.println(indexSize);
+        int indexSize = fullTextEntityManager.getSearchFactory()
+            .getStatistics()
+            .getNumberOfIndexedEntities(Product.class.getName());
+        System.out.println(indexSize);
         QueryBuilder queryBuilder = fullTextEntityManager.getSearchFactory()
             .buildQueryBuilder()
             .forEntity(Product.class)
