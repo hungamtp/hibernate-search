@@ -1,5 +1,6 @@
 package com.example.hibernatesearch.controller;
 
+import com.example.hibernatesearch.dto.PageDTO;
 import com.example.hibernatesearch.entity.Product;
 import com.example.hibernatesearch.repo.ProductRepository;
 import lombok.AllArgsConstructor;
@@ -15,7 +16,8 @@ public class ProductController {
 
     @GetMapping
     public ResponseEntity get(@RequestBody String search) throws InterruptedException {
-        return ResponseEntity.ok().body(productRepository.search(search));
+        var result = productRepository.search(search);
+        return ResponseEntity.ok().body(new PageDTO(result.size(), result));
     }
 
     @PostMapping
