@@ -4,18 +4,21 @@ import com.example.hibernatesearch.dto.PageDTO;
 import com.example.hibernatesearch.entity.Product;
 import com.example.hibernatesearch.repo.ProductRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/product")
-@AllArgsConstructor
 public class ProductController {
 
+
+    @Qualifier("Repo2")
     private ProductRepository productRepository;
 
     @GetMapping
-    public ResponseEntity get(@RequestBody String search) throws InterruptedException {
+    public ResponseEntity get(@RequestParam String search) throws InterruptedException {
         var result = productRepository.searchByKeyWord(search);
         return ResponseEntity.ok().body(new PageDTO(result.size(), result));
     }

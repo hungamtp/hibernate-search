@@ -35,3 +35,30 @@ Thiết kế đơn giản, dễ dàng phối trang phục đi tập Gym, thể t
                                                                                                                            ('ecf174fc-8a16-4ce9-874e-f65d5d51a695','2022-07-05','2022-08-02','Unisex Hooded Zip  được làm từ chất liệu vải bông, không quá bí, phù hợp mặc trong phòng lạnh hoặc khí trời mùa đông. Thiết kế trẻ trung, năng động, phù hợp khi đi làm ở công sở, hoặc đi dạo phố.','Unisex Hooded Zip'),
                                                                                                                            ('f9a29793-86dd-4d60-b3ca-08a8efb6eb4f','2022-07-05','2022-08-02','Thiết kế theo phong cách unisex, ôm sát body, yêu cầu loại vải dày, nên áo thường được mặc vào những dịp trời se lạnh hoặc mội trường phải ngồi nhiều máy lạnh.','Crewneck Sweatshirt');
 
+
+INSERT INTO hibernate_search.auser (id, name) VALUES
+                                                     (5, 'Hung'),
+                                                     (1, 'Tung'),
+                                                     (2, 'Thong'),
+                                                     (3, 'Tri'),
+                                                     (4, 'Sang');
+INSERT INTO hibernate_search.type (id, name) VALUES
+                                                  (5, 'HR'),
+                                                  (1, 'PR'),
+                                                  (2, 'NEWS'),
+                                                  (3, 'SD'),
+                                                  (4, 'HD');
+
+INSERT INTO hibernate_search.role (id, name) VALUES
+                                                 (1, 'Admin'),
+                                                 (2, 'Approver'),
+                                                 (3, 'Editor');
+
+INSERT INTO hibernate_search.user_role_type (user_id, role_id, type_id) VALUES
+                                                                               (1, 1, 1),
+                                                                               (1, 2, 1),
+                                                                               (1, 3, 1),
+                                                                               (2, 1, 1),
+                                                                               (2, 1, 2)
+                                                                               ;
+
